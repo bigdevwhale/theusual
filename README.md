@@ -30,7 +30,7 @@ We usually pick cafés by stars and reviews on a map. But the ones that really m
 
 1. **A page for every café.** Its name and address, the front: a front drawn from memory in the packet's colours, or, if you like, your photo of it, as it is or redrawn as an ink sketch, the stamps (sockets, quiet, laptop OK, open late…) and a line of its story.
 2. **A sugar packet on the board.** Every café gets a packet in one of five prints and ten colourways, pinned to a cork board under string lights with a paper tag: "yours · 27", "8 visits", "from Anya", "2019–2026".
-3. **A ring for every cup.** "I'm in a café" writes down a cup. Its ring goes on the right-hand page in the colour of the drink, and cups of the usual pile up where your cup always lands. A line beside a ring: who was there, what happened.
+3. **A coffee ring for every cup.** "I'm in a café" writes down a cup. Its ring goes on the right-hand page in the colour of the drink, and cups of the usual pile up where your cup always lands. A line beside a ring: who was there, what happened.
 4. **The usual?** Write it down, or just order the same thing twice and it writes itself. From the tenth visit the café is stamped *yours*, and walking in, one tap answers "Yes, the usual".
 5. **An hour by the window.** Put the phone face down and look out: time counts only while it lies face down, and goes onto the cup.
 6. **Packets for friends.** Send a café as a sugar packet with a sticky note ("get the filter, sit on the windowsill"). It travels as plain text through any messenger; a friend with The Usual shares it back in, and it lands on their board as a dashed "want to go" packet.
