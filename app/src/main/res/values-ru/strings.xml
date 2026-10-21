@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tagline">КОФЕ · ЗАМЕТКИ · СВОИМ РАДЫ</string>
+    <string name="settings">Настройки</string>
+    <string name="back">Назад</string>
+    <string name="cancel">Отмена</string>
+    <string name="save">Сохранить</string>
+    <string name="edit">Изменить</string>
+    <string name="done">Готово</string>
+    <string name="minutes_short">%d мин</string>
+    <string name="hours_only">%d ч</string>
+    <string name="sugar">САХАР · 5 г</string>
+    <plurals name="cups">
+        <item quantity="one">%d чашка</item>
+        <item quantity="few">%d чашки</item>
+        <item quantity="many">%d чашек</item>
+        <item quantity="other">%d чашки</item>
+    </plurals>
+    <plurals name="visits">
+        <item quantity="one">%d визит</item>
+        <item quantity="few">%d визита</item>
+        <item quantity="many">%d визитов</item>
+        <item quantity="other">%d визита</item>
+    </plurals>
+
+    <string name="d_espresso">Эспрессо</string>
+    <string name="d_filter">Фильтр</string>
+    <string name="d_cappuccino">Капучино</string>
+    <string name="d_flat_white">Флэт уайт</string>
+    <string name="d_latte">Латте</string>
+    <string name="d_raf">Раф</string>
+    <string name="d_cocoa">Какао</string>
+    <string name="d_tea">Чай</string>
+    <string name="d_other">Другое</string>
+
+    <string name="t_sockets">Розетки</string>
+    <string name="t_quiet">Тихо</string>
+    <string name="t_laptop">Ноутбук ок</string>
+    <string name="t_wifi">Wi‑Fi</string>
+    <string name="t_terrace">Веранда</string>
+    <string name="t_dogs">С собакой можно</string>
+    <string name="t_brunch">Бранчи</string>
+    <string name="t_late">Допоздна</string>
+
+    <string name="p_stripes">Полоски</string>
+    <string name="p_dots">Горошек</string>
+    <string name="p_chevron">Шевроны</string>
+    <string name="p_band">Полоса</string>
+    <string name="p_sun">Лучи</string>
+
+    <string name="welcome_title">Дневник кофеен,\nкуда ты возвращаешься</string>
+    <string name="welcome_text">У каждой кофейни своя страница и сахарный пакетик на доске. Каждая чашка оставляет кольцо, и они ложатся друг на друга там, куда ты всегда ставишь чашку. С десятого визита кофейня становится твоей, и приложение спрашивает, как бариста: как обычно?</string>
+    <string name="welcome_go">Открыть дневник</string>
+
+    <string name="year_title">Год в чашках</string>
+    <string name="by_window">у окна: %s</string>
+    <string name="im_here">Я в кофейне</string>
+    <string name="new_cafe">Новая кофейня</string>
+    <string name="where_are_you">Где ты?</string>
+    <string name="somewhere_new">Где-то впервые</string>
+    <string name="tag_regular">своя · %d</string>
+    <string name="tag_from">%s советует</string>
+    <string name="tag_want">хочу зайти</string>
+    <string name="first_cafe">Твоя первая кофейня</string>
+    <string name="empty_board">Приколи первый пакетик:\nкофейню, где ты был на этой неделе.</string>
+    <string name="a_friend">друг</string>
+    <string name="packet_received">Новый пакетик на доске, подписан: %s</string>
+
+    <string name="send_packet">Отправить пакетик</string>
+    <string name="reopened">Снова открыта</string>
+    <string name="it_closed">Закрылась</string>
+    <string name="tear_out">Вырвать страницу</string>
+    <string name="tear_out_title">Вырвать страницу?</string>
+    <string name="tear_out_text">Кофейня, её пакетик и все кольца исчезнут из дневника. Если она закрылась, лучше отметь это: страница останется.</string>
+    <string name="closed_title">Кофейня закрылась</string>
+    <string name="closed_text">Страница останется в дневнике со всеми кольцами. Пакетик на доске получит траурную ленту.</string>
+    <string name="closed_farewell">Последняя строчка (спасибо за…)</string>
+    <string name="closed_yes">Закрылась</string>
+    <string name="closed_sign">ЗАКРЫТО</string>
+    <string name="first_visit">Первый визит</string>
+    <string name="sketch_from_photo">набросок с фото, %s</string>
+    <string name="sketch_from_memory">набросок по памяти</string>
+    <string name="sketch_ready">набросок с твоего фото</string>
+    <string name="stamp_cafe">кофейня</string>
+    <string name="stamp_yours">своя</string>
+    <string name="yours_since">с %s</string>
+    <string name="as_usual_q">Как обычно?</string>
+    <string name="line_spot">место: %s</string>
+    <string name="line_barista">бариста: %s</string>
+    <string name="nothing_usual">Пока ничего обычного. Закажи одно и то же пару раз — и запишется само.</string>
+    <string name="no_rings_yet">Колец пока нет: страница ждёт первую чашку.</string>
+    <string name="ring_is_cup">кольцо = чашка</string>
+    <string name="my_spot">моё место ↙</string>
+    <string name="with_who">за столом: %s</string>
+    <string name="all_cups">Все чашки</string>
+    <string name="thanks_receipt">спасибо, заходите ещё :)</string>
+
+    <string name="visit_n">визит %d</string>
+    <string name="yes_usual">Да, как обычно</string>
+    <string name="something_else">Сегодня другое</string>
+    <string name="whats_today">Что сегодня?</string>
+    <string name="what_exactly">Что именно (своими словами)</string>
+    <string name="write_it_down">Записать</string>
+    <string name="ring_written">Записано. На странице новое кольцо.</string>
+    <string name="with_whom">С кем</string>
+    <string name="a_line">Пара слов о сегодня</string>
+    <string name="price_in">Цена, %s</string>
+    <string name="by_the_window_btn">Час у окна</string>
+    <string name="undo_cup">Это не чашка</string>
+
+    <string name="window_title">У окна</string>
+    <string name="window_how">Положи телефон экраном вниз и посмотри в окно. Время идёт, только пока он лежит экраном вниз.</string>
+    <string name="window_counting">идёт… смотри в окно</string>
+    <string name="window_waiting">положи телефон экраном вниз</string>
+    <string name="window_leave">Встать из-за стола</string>
+
+    <string name="edit_cafe">Кофейня</string>
+    <string name="f_name">Название</string>
+    <string name="f_address">Адрес</string>
+    <string name="f_city">Город</string>
+    <string name="f_front">Фасад</string>
+    <string name="f_shoot">Сфотографировать</string>
+    <string name="f_gallery">Из галереи</string>
+    <string name="f_front_sub">Фото перерисуется в набросок тушью; хранится только набросок.</string>
+    <string name="f_packet">Сахарный пакетик</string>
+    <string name="f_sub">Подпись под названием</string>
+    <string name="f_usual">Как обычно — своими словами</string>
+    <string name="f_spot">Где любишь сидеть</string>
+    <string name="f_barista">Бариста</string>
+    <string name="f_usual_sub">Можно не заполнять: «как обычно» запишется само после пары одинаковых заказов.</string>
+    <string name="f_stamps">Штампы</string>
+    <string name="f_story">История</string>
+    <string name="f_story_hint">Как нашёл, чем она хороша</string>
+
+    <string name="share_title">Пакетик для друга</string>
+    <string name="share_take">Возьми %s.</string>
+    <string name="share_sit">Садись %s.</string>
+    <string name="share_ask">Бариста — %s :)</string>
+    <string name="share_note_hint">Что заказать, где сесть…</string>
+    <string name="share_sign">твоё имя</string>
+    <string name="share_how">Уйдёт обычным текстом через любой мессенджер. Друг с The Usual поделится им обратно — и пакетик ляжет к нему на доску.</string>
+
+    <string name="year_receipt">%d год в чашках</string>
+    <string name="y_cups">чашек</string>
+    <string name="y_cafes">кофеен</string>
+    <string name="y_found">новых открыто</string>
+    <string name="y_window">у окна</string>
+    <string name="y_spent">потрачено</string>
+    <string name="y_drink">напиток года</string>
+    <string name="y_company">компания года</string>
+    <string name="y_loyal">Самая верная</string>
+    <string name="y_closed">Закрылись в этом году</string>
+    <string name="y_index">Индекс: %s</string>
+
+    <string name="s_you">Ты</string>
+    <string name="s_name">Имя</string>
+    <string name="s_name_sub">Подпись под пакетиками, которые ты отправляешь друзьям.</string>
+    <string name="s_city">Домашний город</string>
+    <string name="s_city_sub">Кофейни в других городах получают на пакетик штамп города.</string>
+    <string name="s_prices">Цены</string>
+    <string name="s_prices_sub">Пишется после цены. Выбери или впиши свою; «без цен» — и цену спрашивать не будем.</string>
+    <string name="s_no_prices">Без цен</string>
+    <string name="s_currency_own">Или впиши свою</string>
+    <string name="s_language">Язык</string>
+    <string name="s_lang_system">Как в системе</string>
+    <string name="s_about">О приложении</string>
+    <string name="s_about_text">The Usual — дневник кофеен, куда ты возвращаешься, часть Stillcraft. Без аккаунта, рекламы, аналитики и вообще без интернета: дневник остаётся в телефоне. Фото фасадов перерисовываются в наброски прямо на телефоне, хранится только набросок. Шрифты: Playfair Display, Caveat, Manrope и PT Mono (SIL Open Font License).</string>
+</resources>

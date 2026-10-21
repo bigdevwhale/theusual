@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name" translatable="false">The Usual</string>
+    <string name="tagline">COFFEE · NOTES · REGULARS WELCOME</string>
+    <string name="settings">Settings</string>
+    <string name="back">Back</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="done">Done</string>
+    <string name="minutes_short">%d min</string>
+    <string name="hours_only">%d h</string>
+    <string name="sugar">SUGAR · 5 g</string>
+    <plurals name="cups">
+        <item quantity="one">%d cup</item>
+        <item quantity="other">%d cups</item>
+    </plurals>
+    <plurals name="visits">
+        <item quantity="one">%d visit</item>
+        <item quantity="other">%d visits</item>
+    </plurals>
+
+    <string name="d_espresso">Espresso</string>
+    <string name="d_filter">Filter</string>
+    <string name="d_cappuccino">Cappuccino</string>
+    <string name="d_flat_white">Flat white</string>
+    <string name="d_latte">Latte</string>
+    <string name="d_raf">Raf</string>
+    <string name="d_cocoa">Cocoa</string>
+    <string name="d_tea">Tea</string>
+    <string name="d_other">Something else</string>
+
+    <string name="t_sockets">Sockets</string>
+    <string name="t_quiet">Quiet</string>
+    <string name="t_laptop">Laptop OK</string>
+    <string name="t_wifi">Wi‑Fi</string>
+    <string name="t_terrace">Terrace</string>
+    <string name="t_dogs">Dogs welcome</string>
+    <string name="t_brunch">Brunch</string>
+    <string name="t_late">Open late</string>
+
+    <string name="p_stripes">Stripes</string>
+    <string name="p_dots">Dots</string>
+    <string name="p_chevron">Chevrons</string>
+    <string name="p_band">Band</string>
+    <string name="p_sun">Sunburst</string>
+
+    <string name="welcome_title">A diary of the cafés\nyou keep coming back to</string>
+    <string name="welcome_text">Every café gets a page and a sugar packet on the board. Every cup leaves a ring, and they pile up where your cup always lands. From the tenth visit the café is yours, and the app asks the barista\'s question: the usual?</string>
+    <string name="welcome_go">Open the diary</string>
+
+    <string name="year_title">The year in cups</string>
+    <string name="by_window">%s by the window</string>
+    <string name="im_here">I\'m in a café</string>
+    <string name="new_cafe">New café</string>
+    <string name="where_are_you">Where are you?</string>
+    <string name="somewhere_new">Somewhere new</string>
+    <string name="tag_regular">yours · %d</string>
+    <string name="tag_from">from %s</string>
+    <string name="tag_want">want to go</string>
+    <string name="first_cafe">Your first café</string>
+    <string name="empty_board">Pin up the first packet:\nthe café you went to this week.</string>
+    <string name="a_friend">a friend</string>
+    <string name="packet_received">A new packet on the board, signed: %s</string>
+
+    <string name="send_packet">Send the packet</string>
+    <string name="reopened">It\'s open again</string>
+    <string name="it_closed">It has closed</string>
+    <string name="tear_out">Tear out the page</string>
+    <string name="tear_out_title">Tear out the page?</string>
+    <string name="tear_out_text">The café, its packet and all its rings will be gone from the diary. If it has closed, mark it closed instead: the page stays.</string>
+    <string name="closed_title">The café has closed</string>
+    <string name="closed_text">The page stays in the diary, with every ring. The packet gets a black ribbon on the board.</string>
+    <string name="closed_farewell">A last line (thank you for…)</string>
+    <string name="closed_yes">It has closed</string>
+    <string name="closed_sign">CLOSED</string>
+    <string name="first_visit">First visit</string>
+    <string name="sketch_from_photo">sketched from a photo, %s</string>
+    <string name="sketch_from_memory">drawn from memory</string>
+    <string name="sketch_ready">sketched from your photo</string>
+    <string name="stamp_cafe">café</string>
+    <string name="stamp_yours">yours</string>
+    <string name="yours_since">since %s</string>
+    <string name="as_usual_q">The usual?</string>
+    <string name="line_spot">spot: %s</string>
+    <string name="line_barista">barista: %s</string>
+    <string name="nothing_usual">Nothing usual yet. Order the same thing a couple of times and it writes itself down.</string>
+    <string name="no_rings_yet">No rings yet: the page waits for the first cup.</string>
+    <string name="ring_is_cup">ring = cup</string>
+    <string name="my_spot">my spot ↙</string>
+    <string name="with_who">with %s</string>
+    <string name="all_cups">Every cup</string>
+    <string name="thanks_receipt">thank you, come again :)</string>
+
+    <string name="visit_n">visit %d</string>
+    <string name="yes_usual">Yes, the usual</string>
+    <string name="something_else">Something else today</string>
+    <string name="whats_today">What\'s it today?</string>
+    <string name="what_exactly">What exactly (in your words)</string>
+    <string name="write_it_down">Write it down</string>
+    <string name="ring_written">Written down. A new ring on the page.</string>
+    <string name="with_whom">With whom</string>
+    <string name="a_line">A line about today</string>
+    <string name="price_in">Price, %s</string>
+    <string name="by_the_window_btn">An hour by the window</string>
+    <string name="undo_cup">Not a cup after all</string>
+
+    <string name="window_title">By the window</string>
+    <string name="window_how">Put the phone face down and look out. Time counts only while it lies face down.</string>
+    <string name="window_counting">counting… look out of the window</string>
+    <string name="window_waiting">put the phone face down</string>
+    <string name="window_leave">Get up from the table</string>
+
+    <string name="edit_cafe">The café</string>
+    <string name="f_name">Name</string>
+    <string name="f_address">Address</string>
+    <string name="f_city">City</string>
+    <string name="f_front">The front</string>
+    <string name="f_shoot">Take a photo</string>
+    <string name="f_gallery">From gallery</string>
+    <string name="f_front_sub">The photo is redrawn as an ink sketch; only the sketch is kept.</string>
+    <string name="f_packet">The sugar packet</string>
+    <string name="f_sub">Line under the name</string>
+    <string name="f_usual">The usual, in your words</string>
+    <string name="f_spot">Where you like to sit</string>
+    <string name="f_barista">Barista</string>
+    <string name="f_usual_sub">Leave it empty and the usual writes itself after a couple of the same orders.</string>
+    <string name="f_stamps">Stamps</string>
+    <string name="f_story">The story</string>
+    <string name="f_story_hint">How you found it, what it\'s good for</string>
+
+    <string name="share_title">A packet for a friend</string>
+    <string name="share_take">Get the %s.</string>
+    <string name="share_sit">Sit %s.</string>
+    <string name="share_ask">The barista is %s :)</string>
+    <string name="share_note_hint">What to order, where to sit…</string>
+    <string name="share_sign">your name</string>
+    <string name="share_how">It goes as plain text through any messenger. A friend with The Usual shares it back in, and it lands on their board.</string>
+
+    <string name="year_receipt">The year %d in cups</string>
+    <string name="y_cups">cups</string>
+    <string name="y_cafes">cafés</string>
+    <string name="y_found">new ones found</string>
+    <string name="y_window">by the window</string>
+    <string name="y_spent">spent</string>
+    <string name="y_drink">drink of the year</string>
+    <string name="y_company">company of the year</string>
+    <string name="y_loyal">The most faithful</string>
+    <string name="y_closed">Closed this year</string>
+    <string name="y_index">The %s index</string>
+
+    <string name="s_you">You</string>
+    <string name="s_name">Your name</string>
+    <string name="s_name_sub">Signed under the packets you send to friends.</string>
+    <string name="s_city">Home city</string>
+    <string name="s_city_sub">Cafés in other cities get the city\'s stamp on their packet.</string>
+    <string name="s_prices">Prices</string>
+    <string name="s_prices_sub">Written after a price. Pick one or type your own; with no prices, prices aren't asked.</string>
+    <string name="s_no_prices">No prices</string>
+    <string name="s_currency_own">Or type your own</string>
+    <string name="s_language">Language</string>
+    <string name="s_lang_system">System</string>
+    <string name="s_about">About</string>
+    <string name="s_about_text">The Usual is a diary of the cafés you keep coming back to, part of Stillcraft. No account, no ads, no analytics, and no internet at all: the diary stays on the phone. Photos of café fronts are redrawn as sketches on the phone and only the sketch is kept. Fonts: Playfair Display, Caveat, Manrope and PT Mono (SIL Open Font License).</string>
+</resources>
