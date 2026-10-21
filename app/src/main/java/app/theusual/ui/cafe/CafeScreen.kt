@@ -107,7 +107,7 @@ fun CafeScreen(id: Long, h: Home, go: Go) {
                     if (!cafe.closed) IconButton(onClick = { go.share(id) }) { Icon(Icons.AutoMirrored.Rounded.Send, stringResource(R.string.send_packet), tint = U.c.ink) }
                     IconButton(onClick = { go.edit(id) }) { Icon(Icons.Rounded.Edit, stringResource(R.string.edit), tint = U.c.ink) }
                     Box {
-                        IconButton(onClick = { menu = true }) { Icon(Icons.Rounded.MoreVert, null, tint = U.c.ink) }
+                        IconButton(onClick = { menu = true }) { Icon(Icons.Rounded.MoreVert, stringResource(R.string.more), tint = U.c.ink) }
                         DropdownMenu(menu, { menu = false }) {
                             if (cafe.closed) DropdownMenuItem({ Text(stringResource(R.string.reopened)) }, { menu = false; c.container.write { diary.reopen(id) } })
                             else DropdownMenuItem({ Text(stringResource(R.string.it_closed)) }, { menu = false; closing = true })
@@ -173,8 +173,9 @@ private fun Memorial(cafe: Cafe, h: Home) {
         Spacer(Modifier.height(14.dp))
         val first = h.visits(cafe.id).lastOrNull()?.at ?: cafe.addedAt
         Text("${Rules.year(first)} — ${Rules.year(cafe.closedAt)}", fontFamily = Hand, fontSize = 30.sp, color = U.c.ink)
+        val window = h.window(cafe.id)
         Text(
-            T.plural(c, R.plurals.visits, h.count(cafe.id)) + " · " + stringResource(R.string.by_window, T.window(c, h.window(cafe.id))),
+            T.plural(c, R.plurals.visits, h.count(cafe.id)) + if (window > 0) " · " + stringResource(R.string.by_window, T.window(c, window)) else "",
             fontFamily = Mono, fontSize = 12.sp, color = U.c.muted,
         )
         if (cafe.farewell.isNotBlank()) {

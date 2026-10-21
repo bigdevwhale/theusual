@@ -33,6 +33,18 @@ object T {
     /** "12.03.24", for a receipt. */
     fun stamp(at: Long): String = Instant.ofEpochMilli(at).atZone(zone()).toLocalDate().format(DateTimeFormatter.ofPattern("dd.MM.yy"))
 
+    /** "today", "yesterday", "5 days ago", or the date for anything older than two weeks. */
+    fun ago(c: Context, at: Long, today: LocalDate = LocalDate.now()): String {
+        val d = Instant.ofEpochMilli(at).atZone(zone()).toLocalDate()
+        val days = java.time.temporal.ChronoUnit.DAYS.between(d, today).toInt()
+        return when {
+            days <= 0 -> c.getString(R.string.today)
+            days == 1 -> c.getString(R.string.yesterday)
+            days < 14 -> plural(c, R.plurals.days_ago, days)
+            else -> date(c, at, today)
+        }
+    }
+
     /** "41 h" or "35 min". */
     fun window(c: Context, min: Int): String =
         if (min >= 60) c.getString(R.string.hours_only, min / 60) else c.getString(R.string.minutes_short, min)

@@ -10,6 +10,14 @@
     <string name="done">Done</string>
     <string name="minutes_short">%d min</string>
     <string name="hours_only">%d h</string>
+    <string name="today">today</string>
+    <string name="yesterday">yesterday</string>
+    <string name="more">More</string>
+    <string name="last_cup">last cup: %1$s, %2$s</string>
+    <plurals name="days_ago">
+        <item quantity="one">%d day ago</item>
+        <item quantity="other">%d days ago</item>
+    </plurals>
     <string name="sugar">SUGAR · 5 g</string>
     <plurals name="cups">
         <item quantity="one">%d cup</item>

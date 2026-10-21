@@ -103,6 +103,9 @@ class Home(
     }
 
     val open: List<Cafe> = cafes.filter { !it.closed }
+
+    /** The latest cup of all, and where it was drunk. */
+    val latest: Pair<Visit, Cafe>? = visits.maxByOrNull { it.at }?.let { v -> byId[v.cafeId]?.let { v to it } }
     val windowMin: Int = visits.sumOf { it.windowMin }
 }
 

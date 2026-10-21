@@ -97,6 +97,13 @@ fun BoardScreen(h: Home, go: Go) {
                     T.plural(c, R.plurals.cups, cups) + " · " + stringResource(R.string.by_window, T.window(c, h.windowMin)),
                     fontFamily = Mono, fontSize = 12.sp, color = U.c.faint,
                 )
+                h.latest?.let { (v, cafe) ->
+                    Text(
+                        stringResource(R.string.last_cup, cafe.name, T.ago(c, v.at)),
+                        fontFamily = Hand, fontSize = 21.sp, color = U.c.amber, maxLines = 1, overflow = TextOverflow.Ellipsis,
+                        modifier = Modifier.padding(top = 2.dp).clip(U.RSm).clickable { go.cafe(cafe.id) },
+                    )
+                }
             }
             IconButton(onClick = go::year) { Icon(Icons.Rounded.AutoStories, stringResource(R.string.year_title), tint = U.c.muted) }
             IconButton(onClick = go::settings) { Icon(Icons.Rounded.Settings, stringResource(R.string.settings), tint = U.c.muted) }

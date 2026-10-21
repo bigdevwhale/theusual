@@ -9,6 +9,16 @@
     <string name="done">Готово</string>
     <string name="minutes_short">%d мин</string>
     <string name="hours_only">%d ч</string>
+    <string name="today">сегодня</string>
+    <string name="yesterday">вчера</string>
+    <string name="more">Ещё</string>
+    <string name="last_cup">последняя чашка: %1$s, %2$s</string>
+    <plurals name="days_ago">
+        <item quantity="one">%d день назад</item>
+        <item quantity="few">%d дня назад</item>
+        <item quantity="many">%d дней назад</item>
+        <item quantity="other">%d дня назад</item>
+    </plurals>
     <string name="sugar">САХАР · 5 г</string>
     <plurals name="cups">
         <item quantity="one">%d чашка</item>
