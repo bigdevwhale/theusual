@@ -104,11 +104,15 @@ fun EditScreen(id: Long, h: Home, go: Go) {
     val scope = rememberCoroutineScope()
     val sugar = stringResource(R.string.sugar)
 
+    // The photo stays at hand while the form is open, so it can be shown as it is or as a sketch.
+    var photo by rememberSaveable { mutableStateOf<String?>(null) }
+    var ink by rememberSaveable { mutableStateOf(existing?.sketch?.let { !Sketches.isPhoto(it) } ?: false) }
     fun sketch(uri: Uri?) {
         uri ?: return
+        photo = uri.toString()
         sketching = true
         scope.launch {
-            val name = Sketches.fromPhoto(c, uri)
+            val name = Sketches.fromPhoto(c, uri, ink)
             // A sketch made here and replaced before saving is nobody's: drop it.
             if (name != null && d.sketch != null && d.sketch != existing?.sketch) Sketches.delete(c, d.sketch)
             if (name != null) d = d.copy(sketch = name)
@@ -146,13 +150,26 @@ fun EditScreen(id: Long, h: Home, go: Go) {
 
             SectionTitle(stringResource(R.string.f_front))
             Box(Modifier.fillMaxWidth().clip(U.RMd).background(U.c.wood).padding(vertical = 22.dp), contentAlignment = Alignment.Center) {
-                Polaroid(d.sketch, d.palette, d.name, stringResource(if (d.sketch != null) R.string.sketch_ready else R.string.sketch_from_memory), Modifier.fillMaxWidth(.7f))
+                Polaroid(
+                    d.sketch, d.palette, d.name,
+                    stringResource(if (d.sketch == null) R.string.sketch_from_memory else if (Sketches.isPhoto(d.sketch)) R.string.photo_ready else R.string.sketch_ready),
+                    Modifier.fillMaxWidth(.7f),
+                )
                 if (sketching) CircularProgressIndicator(color = U.c.amber)
             }
             Spacer(Modifier.height(10.dp))
             Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
                 SoftButton(stringResource(R.string.f_shoot), { runCatching { camera.launch(shotUri) } }, Modifier.weight(1f), icon = Icons.Rounded.PhotoCamera)
                 SoftButton(stringResource(R.string.f_gallery), { gallery.launch(PickVisualMediaRequest(ActivityResultContracts.PickVisualMedia.ImageOnly)) }, Modifier.weight(1f), icon = Icons.Rounded.PhotoLibrary)
+            }
+            if (d.sketch != null) {
+                Spacer(Modifier.height(10.dp))
+                Row(horizontalArrangement = Arrangement.spacedBy(8.dp), verticalAlignment = Alignment.CenterVertically) {
+                    Chip(stringResource(R.string.f_as_photo), !ink) { val p = photo; if (ink && p != null) { ink = false; sketch(Uri.parse(p)) } }
+                    Chip(stringResource(R.string.f_as_sketch), ink) { val p = photo; if (!ink && p != null) { ink = true; sketch(Uri.parse(p)) } }
+                }
+                if (photo == null) Text(stringResource(R.string.f_restyle_sub), style = UType.Small, modifier = Modifier.padding(top = 4.dp, start = 4.dp))
+                Row { TextLink(stringResource(R.string.f_no_photo), { if (d.sketch != existing?.sketch) Sketches.delete(c, d.sketch); d = d.copy(sketch = null); photo = null }) }
             }
             Text(stringResource(R.string.f_front_sub), style = UType.Small, modifier = Modifier.padding(top = 6.dp, start = 4.dp))
 

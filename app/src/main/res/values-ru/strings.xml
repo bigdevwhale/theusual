@@ -91,6 +91,12 @@
     <string name="sketch_from_photo">набросок с фото, %s</string>
     <string name="sketch_from_memory">набросок по памяти</string>
     <string name="sketch_ready">набросок с твоего фото</string>
+    <string name="photo_ready">твоё фото</string>
+    <string name="photo_from">фото, %s</string>
+    <string name="f_as_photo">Как есть</string>
+    <string name="f_as_sketch">Набросок тушью</string>
+    <string name="f_restyle_sub">Чтобы поменять вид, сними фото ещё раз.</string>
+    <string name="f_no_photo">Без фото: фасад по памяти</string>
     <string name="stamp_cafe">кофейня</string>
     <string name="stamp_yours">своя</string>
     <string name="yours_since">с %s</string>
@@ -131,7 +137,7 @@
     <string name="f_front">Фасад</string>
     <string name="f_shoot">Сфотографировать</string>
     <string name="f_gallery">Из галереи</string>
-    <string name="f_front_sub">Фото перерисуется в набросок тушью; хранится только набросок.</string>
+    <string name="f_front_sub">Фото не обязательно: без него на странице нарисованный фасад.</string>
     <string name="f_packet">Сахарный пакетик</string>
     <string name="f_sub">Подпись под названием</string>
     <string name="f_usual">Как обычно — своими словами</string>

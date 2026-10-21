@@ -106,6 +106,9 @@ class PinOverlay(context: Context, private val onTap: (Long?) -> Unit) : Overlay
     var pins: List<Pin> = emptyList()
     var picked: Long? = null
 
+    /** Where the phone is, after "I'm here". */
+    var me: GeoPoint? = null
+
     private val dp = context.resources.displayMetrics.density
     private val hand = ResourcesCompat.getFont(context, R.font.caveat)
     private val fill = Paint(Paint.ANTI_ALIAS_FLAG)
@@ -123,6 +126,15 @@ class PinOverlay(context: Context, private val onTap: (Long?) -> Unit) : Overlay
         if (shadow) return
         val proj = map.projection
         val names = map.zoomLevelDouble >= 14.5
+        me?.let { g ->
+            proj.toPixels(g, pt)
+            fill.color = 0x44F2B25C
+            c.drawCircle(pt.x.toFloat(), pt.y.toFloat(), 16 * dp, fill)
+            fill.color = 0xFFFBF3E2.toInt()
+            c.drawCircle(pt.x.toFloat(), pt.y.toFloat(), 8 * dp, fill)
+            fill.color = 0xFFD9822B.toInt()
+            c.drawCircle(pt.x.toFloat(), pt.y.toFloat(), 5.5f * dp, fill)
+        }
         // The picked one goes on top.
         pins.sortedBy { it.id == picked }.forEach { p ->
             proj.toPixels(GeoPoint(p.lat, p.lon), pt)

@@ -86,6 +86,12 @@
     <string name="sketch_from_photo">sketched from a photo, %s</string>
     <string name="sketch_from_memory">drawn from memory</string>
     <string name="sketch_ready">sketched from your photo</string>
+    <string name="photo_ready">your photo</string>
+    <string name="photo_from">photo, %s</string>
+    <string name="f_as_photo">As it is</string>
+    <string name="f_as_sketch">As an ink sketch</string>
+    <string name="f_restyle_sub">Take the photo again to change how it looks.</string>
+    <string name="f_no_photo">No photo: the front drawn from memory</string>
     <string name="stamp_cafe">café</string>
     <string name="stamp_yours">yours</string>
     <string name="yours_since">since %s</string>
@@ -126,7 +132,7 @@
     <string name="f_front">The front</string>
     <string name="f_shoot">Take a photo</string>
     <string name="f_gallery">From gallery</string>
-    <string name="f_front_sub">The photo is redrawn as an ink sketch; only the sketch is kept.</string>
+    <string name="f_front_sub">A photo is optional: without one the page shows a front drawn from memory.</string>
     <string name="f_packet">The sugar packet</string>
     <string name="f_sub">Line under the name</string>
     <string name="f_usual">The usual, in your words</string>

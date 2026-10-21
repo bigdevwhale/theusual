@@ -57,6 +57,7 @@ import androidx.compose.ui.unit.sp
 import app.theusual.R
 import app.theusual.container
 import app.theusual.data.Cafe
+import app.theusual.data.Sketches
 import app.theusual.data.Visit
 import app.theusual.domain.Rules
 import app.theusual.ui.Go
@@ -197,7 +198,11 @@ private fun LeftPage(cafe: Cafe, h: Home, visits: List<Visit>, go: Go) {
         Box(Modifier.fillMaxWidth()) {
             Polaroid(
                 cafe.sketch, cafe.palette, cafe.name,
-                if (cafe.sketch != null) stringResource(R.string.sketch_from_photo, T.short(cafe.addedAt)) else stringResource(R.string.sketch_from_memory),
+                when {
+                    cafe.sketch == null -> stringResource(R.string.sketch_from_memory)
+                    Sketches.isPhoto(cafe.sketch) -> stringResource(R.string.photo_from, T.short(cafe.addedAt))
+                    else -> stringResource(R.string.sketch_from_photo, T.short(cafe.addedAt))
+                },
                 Modifier.fillMaxWidth(.78f).padding(top = 10.dp),
             )
             if (standing == Standing.REGULAR) Column(Modifier.align(Alignment.TopEnd).offset(x = 6.dp, y = 4.dp), horizontalAlignment = Alignment.CenterHorizontally) {

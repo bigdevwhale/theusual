@@ -171,7 +171,9 @@ private fun Done(visitId: Long, drink: Drink, h: Home, go: Go) {
     Column(Modifier.fillMaxWidth().padding(horizontal = 20.dp), horizontalAlignment = Alignment.CenterHorizontally) {
         CupFromAbove(drink, Modifier.size(190.dp))
         Text(stringResource(R.string.ring_written), fontFamily = Hand, fontSize = 26.sp, color = U.c.ink, textAlign = TextAlign.Center)
-        Spacer(Modifier.height(14.dp))
+        // Right under the news, where a slip is noticed at once, not below the fold.
+        TextLink(stringResource(R.string.undo_cup), { c.container.write { diary.forgetVisit(visitId) }; go.back() })
+        Spacer(Modifier.height(6.dp))
         Field(with, { with = it }, stringResource(R.string.with_whom))
         Spacer(Modifier.height(8.dp))
         Field(note, { note = it }, stringResource(R.string.a_line), singleLine = false)
@@ -189,7 +191,5 @@ private fun Done(visitId: Long, drink: Drink, h: Home, go: Go) {
         SoftButton(stringResource(R.string.by_the_window_btn), { save(); go.window(visitId) }, Modifier.fillMaxWidth(), icon = Icons.Rounded.WbTwilight)
         Spacer(Modifier.height(10.dp))
         PrimaryButton(stringResource(R.string.done), { save(); go.back() }, Modifier.fillMaxWidth())
-        Spacer(Modifier.height(4.dp))
-        Row { TextLink(stringResource(R.string.undo_cup), { c.container.write { diary.forgetVisit(visitId) }; go.back() }) }
     }
 }

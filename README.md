@@ -28,7 +28,7 @@ Map apps rate cafés by strangers' stars. But the cafés that matter are the few
 
 ## How it works
 
-1. **A page for every café.** Its name and address, a photo of the front redrawn on the phone as an ink sketch (or a front drawn from memory in the packet's colours), the stamps (sockets, quiet, laptop OK, open late…) and a line of its story.
+1. **A page for every café.** Its name and address, the front: a front drawn from memory in the packet's colours, or, if you like, your photo of it, as it is or redrawn as an ink sketch, the stamps (sockets, quiet, laptop OK, open late…) and a line of its story.
 2. **A sugar packet on the board.** Every café gets a packet in one of five prints and ten colourways, pinned to a cork board under string lights with a paper tag: "yours · 27", "8 visits", "from Anya", "2019–2026".
 3. **A ring for every cup.** "I'm in a café" writes down a cup. Its ring goes on the right-hand page in the colour of the drink, and cups of the usual pile up where your cup always lands. A line beside a ring: who was there, what happened.
 4. **The usual?** Write it down, or just order the same thing twice and it writes itself. From the tenth visit the café is stamped *yours*, and walking in, one tap answers "Yes, the usual".

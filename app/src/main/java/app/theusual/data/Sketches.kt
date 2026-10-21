@@ -12,8 +12,9 @@ import kotlin.math.max
 import kotlin.math.min
 
 /**
- * A photo of a café front, redrawn as an ink sketch on cream paper: the edges in brown ink, the
- * colours washed out like watercolour. Only the sketch is kept, never the photo.
+ * A photo of a café front: kept as it is (scaled down), or redrawn as an ink sketch on cream
+ * paper, the edges in brown ink and the colours washed out like watercolour. Without one, the page
+ * shows a front drawn from memory.
  */
 object Sketches {
     private const val SIDE = 960
@@ -26,7 +27,10 @@ object Sketches {
         file(c, name)?.delete()
     }
 
-    suspend fun fromPhoto(c: Context, uri: Uri): String? = withContext(Dispatchers.Default) {
+    /** Is this file the photo as it was taken, not a sketch? */
+    fun isPhoto(name: String?) = name?.startsWith("photo-") == true
+
+    suspend fun fromPhoto(c: Context, uri: Uri, ink: Boolean): String? = withContext(Dispatchers.Default) {
         runCatching {
             val photo = ImageDecoder.decodeBitmap(ImageDecoder.createSource(c.contentResolver, uri)) { d, info, _ ->
                 val s = info.size
@@ -34,11 +38,16 @@ object Sketches {
                 d.setTargetSampleSize(k)
                 d.allocator = ImageDecoder.ALLOCATOR_SOFTWARE
             }
-            val sketch = draw(photo)
-            val name = UUID.randomUUID().toString() + ".jpg"
-            File(dir(c), name).outputStream().use { sketch.compress(Bitmap.CompressFormat.JPEG, 88, it) }
+            val out = if (ink) draw(photo) else scaled(photo, 1280)
+            val name = (if (ink) "sketch-" else "photo-") + UUID.randomUUID().toString() + ".jpg"
+            File(dir(c), name).outputStream().use { out.compress(Bitmap.CompressFormat.JPEG, 88, it) }
             name
         }.getOrNull()
+    }
+
+    private fun scaled(src: Bitmap, side: Int): Bitmap {
+        val k = side.toFloat() / max(src.width, src.height)
+        return if (k < 1f) Bitmap.createScaledBitmap(src, (src.width * k).toInt(), (src.height * k).toInt(), true) else src
     }
 
     /** Ink lines from a difference of blurs, over a pale, warm wash of the photo's colours. */

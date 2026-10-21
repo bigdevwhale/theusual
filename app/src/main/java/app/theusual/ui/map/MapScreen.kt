@@ -95,7 +95,10 @@ fun MapScreen(focus: Long, h: Home, go: Go) {
     }
     val locate = rememberHere { l ->
         if (l == null) Toast.makeText(c, R.string.no_location, Toast.LENGTH_SHORT).show()
-        else map.controller.animateTo(GeoPoint(l.latitude, l.longitude), 16.0, 600L)
+        else {
+            overlay.me = GeoPoint(l.latitude, l.longitude)
+            map.controller.animateTo(GeoPoint(l.latitude, l.longitude), 16.0, 600L)
+        }
     }
 
     Box(Modifier.fillMaxSize().background(U.c.bg)) {
