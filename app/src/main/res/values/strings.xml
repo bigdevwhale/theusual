@@ -155,7 +155,7 @@
     <string name="s_city">Home city</string>
     <string name="s_city_sub">Cafés in other cities get the city\'s stamp on their packet.</string>
     <string name="s_prices">Prices</string>
-    <string name="s_prices_sub">Written after a price. Pick one or type your own; with no prices, prices aren't asked.</string>
+    <string name="s_prices_sub">Written after a price. Pick one or type your own; with no prices, prices aren\'t asked.</string>
     <string name="s_no_prices">No prices</string>
     <string name="s_currency_own">Or type your own</string>
     <string name="s_language">Language</string>
