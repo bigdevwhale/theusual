@@ -45,7 +45,7 @@ val InsideDark = Rect(170f, 80f, 930f, 560f)
 
 /**
  * The café from the street on a rainy evening: a striped awning, a big window full of lamplight,
- * someone reading at the table by it with a cup, shelves and the counter behind, the name in gold
+ * someone at the table by it with a cup, shelves and the counter behind, the name in gold
  * leaf on the glass, a fogged-up corner with a heart drawn in it, a black cat on the sill, a
  * street lamp, wet cobbles. With [lights] off the café has closed: blue dark inside, chairs up on
  * the table, a sign on the door.
@@ -162,7 +162,7 @@ private fun DrawScope.inside(lights: Boolean, b: Bits, steam: Float) {
         drawLine(sil, Offset(190f, WY + 300f), Offset(470f, WY + 300f), 8f)
         drawLine(sil, Offset(220f, WY + 304f), Offset(214f, WY + 380f), 7f)
         drawLine(sil, Offset(440f, WY + 304f), Offset(446f, WY + 380f), 7f)
-        if (lights) reader(sil, shelf, steam) else chairsUp(sil)
+        if (lights) reader(sil, steam) else chairsUp(sil)
         // A heart drawn with a finger in the fogged glass.
         val heart = Path().apply {
             moveTo(820f, WY + 330f)
@@ -177,15 +177,11 @@ private fun DrawScope.inside(lights: Boolean, b: Bits, steam: Float) {
     }
 }
 
-/** Someone reading at the table with a cup of something hot. */
-private fun DrawScope.reader(sil: Color, light: Color, steam: Float) {
+/** Someone at the table, looking out, with a cup of something hot. */
+private fun DrawScope.reader(sil: Color, steam: Float) {
     drawCircle(sil, 24f, Offset(300f, WY + 196f))
     drawCircle(sil, 11f, Offset(316f, WY + 176f))
     drawPath(Path().apply { moveTo(258f, WY + 300f); quadraticTo(256f, WY + 236f, 300f, WY + 226f); quadraticTo(344f, WY + 236f, 342f, WY + 300f); close() }, sil)
-    drawPath(Path().apply { moveTo(334f, WY + 258f); quadraticTo(356f, WY + 276f, 356f, WY + 294f) }, sil, style = Stroke(12f, cap = StrokeCap.Round))
-    // An open book lying on the table.
-    drawPath(Path().apply { moveTo(332f, WY + 299f); quadraticTo(347f, WY + 287f, 364f, WY + 293f); quadraticTo(381f, WY + 287f, 396f, WY + 299f); close() }, sil)
-    drawPath(Path().apply { moveTo(338f, WY + 296f); quadraticTo(350f, WY + 290f, 362f, WY + 295f); moveTo(366f, WY + 295f); quadraticTo(378f, WY + 290f, 390f, WY + 296f) }, light.copy(alpha = .7f), style = Stroke(1.5f))
     // A cup on its saucer.
     drawOval(sil, Offset(412f, WY + 293.5f), Size(40f, 7f))
     drawPath(Path().apply { moveTo(419f, WY + 276f); lineTo(445f, WY + 276f); quadraticTo(444f, WY + 295f, 432f, WY + 295f); quadraticTo(420f, WY + 295f, 419f, WY + 276f); close() }, sil)
