@@ -38,14 +38,14 @@ import kotlin.random.Random
 const val SCENE_W = 1120f
 const val SCENE_H = 600f
 
-/** Crops of the scene: the whole front, and the table by the window with the reader. */
+/** Crops of the scene: the whole front, and the table by the window with its empty chair. */
 val WholeFront = Rect(0f, 0f, SCENE_W, SCENE_H)
 val ByTheWindow = Rect(140f, 100f, 640f, 476f)
 val InsideDark = Rect(170f, 80f, 930f, 560f)
 
 /**
  * The café from the street on a rainy evening: a striped awning, a big window full of lamplight,
- * someone at the table by it with a cup, shelves and the counter behind, the name in gold
+ * an empty chair at the table by it and a cup, shelves and the counter behind, the name in gold
  * leaf on the glass, a fogged-up corner with a heart drawn in it, a black cat on the sill, a
  * street lamp, wet cobbles. With [lights] off the café has closed: blue dark inside, chairs up on
  * the table, a sign on the door.
@@ -162,7 +162,7 @@ private fun DrawScope.inside(lights: Boolean, b: Bits, steam: Float) {
         drawLine(sil, Offset(190f, WY + 300f), Offset(470f, WY + 300f), 8f)
         drawLine(sil, Offset(220f, WY + 304f), Offset(214f, WY + 380f), 7f)
         drawLine(sil, Offset(440f, WY + 304f), Offset(446f, WY + 380f), 7f)
-        if (lights) reader(sil, steam) else chairsUp(sil)
+        if (lights) spot(sil, steam) else chairsUp(sil)
         // A heart drawn with a finger in the fogged glass.
         val heart = Path().apply {
             moveTo(820f, WY + 330f)
@@ -177,11 +177,18 @@ private fun DrawScope.inside(lights: Boolean, b: Bits, steam: Float) {
     }
 }
 
-/** Someone at the table, looking out, with a cup of something hot. */
-private fun DrawScope.reader(sil: Color, steam: Float) {
-    drawCircle(sil, 24f, Offset(300f, WY + 196f))
-    drawCircle(sil, 11f, Offset(316f, WY + 176f))
-    drawPath(Path().apply { moveTo(258f, WY + 300f); quadraticTo(256f, WY + 236f, 300f, WY + 226f); quadraticTo(344f, WY + 236f, 342f, WY + 300f); close() }, sil)
+/** Your spot by the window, waiting: a bentwood chair pulled up to the table, a cup of something hot. */
+private fun DrawScope.spot(sil: Color, steam: Float) {
+    val leg = Stroke(5f, cap = StrokeCap.Round)
+    // The hooped back, the seat, four legs and the ring between them.
+    drawPath(Path().apply { moveTo(232f, WY + 330f); lineTo(229f, WY + 258f); quadraticTo(257f, WY + 236f, 285f, WY + 258f); lineTo(282f, WY + 330f) }, sil, style = Stroke(7f, cap = StrokeCap.Round))
+    drawPath(Path().apply { moveTo(240f, WY + 322f); lineTo(238f, WY + 268f); quadraticTo(257f, WY + 254f, 276f, WY + 268f); lineTo(274f, WY + 322f) }, sil, style = Stroke(3f, cap = StrokeCap.Round))
+    drawRoundRect(sil, Offset(220f, WY + 326f), Size(74f, 9f), CornerRadius(4f))
+    drawLine(sil, Offset(226f, WY + 334f), Offset(216f, WY + 380f), 5f, StrokeCap.Round)
+    drawLine(sil, Offset(288f, WY + 334f), Offset(298f, WY + 380f), 5f, StrokeCap.Round)
+    drawLine(sil, Offset(244f, WY + 334f), Offset(240f, WY + 376f), 4f, StrokeCap.Round)
+    drawLine(sil, Offset(270f, WY + 334f), Offset(274f, WY + 376f), 4f, StrokeCap.Round)
+    drawOval(sil, Offset(222f, WY + 352f), Size(70f, 10f), style = leg)
     // A cup on its saucer.
     drawOval(sil, Offset(412f, WY + 293.5f), Size(40f, 7f))
     drawPath(Path().apply { moveTo(419f, WY + 276f); lineTo(445f, WY + 276f); quadraticTo(444f, WY + 295f, 432f, WY + 295f); quadraticTo(420f, WY + 295f, 419f, WY + 276f); close() }, sil)
