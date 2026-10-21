@@ -24,7 +24,7 @@
 
 ## The idea
 
-Map apps rate cafés by strangers' stars. But the cafés that matter are the few you return to: where the barista knows the order, where you have a spot by the window, where you once argued with a friend for three hours. The Usual is a notebook for those places, and for the small ritual of going back.
+We usually pick cafés by stars and reviews on a map. But the ones that really matter are the few you return to: where the barista knows the order, where you have a spot by the window, where you once argued with a friend for three hours. The Usual is a notebook for those places, and for the small ritual of going back.
 
 ## How it works
 
