@@ -20,9 +20,11 @@ data class CafeDraft(
     val story: String = "",
     /** A fresh sketch waiting in the sketches folder, or the café's own. */
     val sketch: String? = null,
+    val lat: Double? = null,
+    val lon: Double? = null,
 ) {
     companion object {
-        fun of(c: Cafe) = CafeDraft(c.name, c.address, c.city, c.sub, c.patternOf, c.palette, c.usual, c.usualDrinkOf, c.spot, c.barista, c.tagsOf, c.story, c.sketch)
+        fun of(c: Cafe) = CafeDraft(c.name, c.address, c.city, c.sub, c.patternOf, c.palette, c.usual, c.usualDrinkOf, c.spot, c.barista, c.tagsOf, c.story, c.sketch, c.lat, c.lon)
     }
 }
 
@@ -35,7 +37,7 @@ class Diary(private val context: Context, private val db: DiaryDatabase) {
             name = d.name.trim(), address = d.address.trim(), city = d.city.trim(), sub = d.sub.trim(),
             pattern = d.pattern.name, palette = d.palette, usual = d.usual.trim(), usualDrink = d.usualDrink?.name.orEmpty(),
             spot = d.spot.trim(), barista = d.barista.trim(), tags = Tag.join(d.tags), story = d.story.trim(),
-            sketch = d.sketch, addedAt = now, seed = Random.nextLong(),
+            sketch = d.sketch, addedAt = now, seed = Random.nextLong(), lat = d.lat, lon = d.lon,
         ),
     )
 
@@ -47,6 +49,7 @@ class Diary(private val context: Context, private val db: DiaryDatabase) {
                 name = d.name.trim(), address = d.address.trim(), city = d.city.trim(), sub = d.sub.trim(),
                 pattern = d.pattern.name, palette = d.palette, usual = d.usual.trim(), usualDrink = d.usualDrink?.name.orEmpty(),
                 spot = d.spot.trim(), barista = d.barista.trim(), tags = Tag.join(d.tags), story = d.story.trim(), sketch = d.sketch,
+                lat = d.lat, lon = d.lon,
             ),
         )
     }
@@ -88,7 +91,7 @@ class Diary(private val context: Context, private val db: DiaryDatabase) {
         return dao.insert(
             Cafe(
                 name = p.name, address = p.address, city = p.city, sub = p.sub, pattern = p.pattern.name,
-                palette = p.palette.coerceIn(0, PACKET_COLOURS - 1), from = p.from, fromNote = p.note, seed = Random.nextLong(),
+                palette = p.palette.coerceIn(0, PACKET_COLOURS - 1), from = p.from, fromNote = p.note, seed = Random.nextLong(), lat = p.lat, lon = p.lon,
             ),
         )
     }

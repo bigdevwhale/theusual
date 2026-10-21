@@ -16,6 +16,9 @@ data class PacketCard(
     val palette: Int = 0,
     val note: String = "",
     val from: String = "",
+    /** Where it is, so it lands on the friend's map too. */
+    val lat: Double? = null,
+    val lon: Double? = null,
 )
 
 object Packets {
@@ -26,7 +29,8 @@ object Packets {
         listOf(p.address, p.city).filter { it.isNotBlank() }.joinToString(" · ").takeIf { it.isNotEmpty() }?.let(::add)
         if (p.note.isNotBlank()) add("«${p.note.trim()}»")
         if (p.from.isNotBlank()) add("— ${p.from.trim()}")
-        add("$TAG ${p.pattern.name.lowercase()}/${p.palette}")
+        val geo = if (p.lat != null && p.lon != null) " @%.5f,%.5f".format(java.util.Locale.ROOT, p.lat, p.lon) else ""
+        add("$TAG ${p.pattern.name.lowercase()}/${p.palette}$geo")
     }.joinToString("\n")
 
     /** Reads a packet back out of shared text; null when it isn't one. */
@@ -44,7 +48,10 @@ object Packets {
         val parts = place?.split(" · ").orEmpty()
         val note = lines.firstOrNull { it.startsWith("«") }?.removePrefix("«")?.removeSuffix("»")?.trim().orEmpty()
         val from = lines.firstOrNull { it.startsWith("— ") }?.removePrefix("— ")?.trim().orEmpty()
-        val design = lines[tag].removePrefix(TAG).trim()
+        val tagLine = lines[tag].removePrefix(TAG).trim()
+        val design = tagLine.substringBefore(" @").trim()
+        val geo = tagLine.substringAfter(" @", "").split(',').mapNotNull { it.trim().toDoubleOrNull() }
+            .takeIf { it.size == 2 && it[0] in -90.0..90.0 && it[1] in -180.0..180.0 }
         val pattern = Pattern.of(design.substringBefore('/').uppercase())
         val palette = design.substringAfter('/', "0").trim().toIntOrNull() ?: 0
         return PacketCard(
@@ -56,6 +63,8 @@ object Packets {
             palette = palette,
             note = note,
             from = from,
+            lat = geo?.get(0),
+            lon = geo?.get(1),
         )
     }
 }

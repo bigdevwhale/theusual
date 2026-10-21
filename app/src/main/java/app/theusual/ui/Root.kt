@@ -34,6 +34,8 @@ import app.theusual.ui.board.BoardScreen
 import app.theusual.ui.cafe.CafeScreen
 import app.theusual.ui.components.rememberNow
 import app.theusual.ui.edit.EditScreen
+import app.theusual.ui.map.MapScreen
+import app.theusual.ui.map.PickScreen
 import app.theusual.ui.onboarding.WelcomeScreen
 import app.theusual.ui.settings.SettingsScreen
 import app.theusual.ui.share.ShareScreen
@@ -118,6 +120,8 @@ class Go(private val nav: NavHostController) {
     fun window(visitId: Long) = nav.navigate("window/$visitId") { launchSingleTop = true }
     fun share(id: Long) = nav.navigate("share/$id") { launchSingleTop = true }
     fun year() = nav.navigate("year") { launchSingleTop = true }
+    fun map(focus: Long = 0) = nav.navigate("map/$focus") { launchSingleTop = true }
+    fun pick() = nav.navigate("pick") { launchSingleTop = true }
     fun settings() = nav.navigate("settings") { launchSingleTop = true }
     fun back() { nav.popBackStack() }
     fun board() { nav.popBackStack("board", false) }
@@ -181,6 +185,11 @@ fun TheUsualRoot(settings: Settings) {
             composable("window/{id}", arguments = id) { e -> WindowScreen(e.arguments?.getLong("id") ?: 0L, home, go) }
             composable("share/{id}", arguments = id) { e -> ShareScreen(e.arguments?.getLong("id") ?: 0L, home, go) }
             composable("year") { YearScreen(home, go) }
+            composable("map/{id}", arguments = id) { e -> MapScreen(e.arguments?.getLong("id") ?: 0L, home, go) }
+            composable("pick") {
+                val from = remember { container.pickFrom.value }
+                PickScreen(home, go, container.picked, from?.first, from?.second, remember { container.pickQuery.value })
+            }
             composable("settings") { SettingsScreen(home, go) }
         }
     }

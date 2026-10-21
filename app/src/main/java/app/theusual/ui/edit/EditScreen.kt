@@ -29,11 +29,16 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Map
+import androidx.compose.material.icons.rounded.MyLocation
 import androidx.compose.material.icons.rounded.PhotoCamera
 import androidx.compose.material.icons.rounded.PhotoLibrary
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.saveable.Saver
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -66,6 +71,9 @@ import app.theusual.ui.components.Polaroid
 import app.theusual.ui.components.PrimaryButton
 import app.theusual.ui.components.SectionTitle
 import app.theusual.ui.components.SoftButton
+import app.theusual.ui.components.TextLink
+import app.theusual.ui.map.rememberHere
+import android.widget.Toast
 import app.theusual.ui.components.TopBar
 import app.theusual.ui.ctx
 import app.theusual.ui.theme.U
@@ -83,7 +91,15 @@ import kotlin.random.Random
 fun EditScreen(id: Long, h: Home, go: Go) {
     val c = ctx()
     val existing = h.cafe(id)
-    var d by remember { mutableStateOf(existing?.let(CafeDraft::of) ?: CafeDraft(city = h.settings.city, palette = Random.nextInt(Diary.PACKET_COLOURS), pattern = Pattern.entries.random())) }
+    // Saveable: the form survives a trip to the map picker and back.
+    var d by rememberSaveable(stateSaver = DraftSaver) { mutableStateOf(existing?.let(CafeDraft::of) ?: CafeDraft(city = h.settings.city, palette = Random.nextInt(Diary.PACKET_COLOURS), pattern = Pattern.entries.random())) }
+    LaunchedEffect(Unit) {
+        c.container.picked.collect { p -> if (p != null) { d = d.copy(lat = p.first, lon = p.second); c.container.picked.value = null } }
+    }
+    val here = rememberHere { l ->
+        if (l == null) Toast.makeText(c, R.string.no_location, Toast.LENGTH_SHORT).show()
+        else d = d.copy(lat = l.latitude, lon = l.longitude)
+    }
     var sketching by remember { mutableStateOf(false) }
     val scope = rememberCoroutineScope()
     val sugar = stringResource(R.string.sugar)
@@ -112,6 +128,21 @@ fun EditScreen(id: Long, h: Home, go: Go) {
             Field(d.address, { d = d.copy(address = it) }, stringResource(R.string.f_address))
             Spacer(Modifier.height(8.dp))
             Field(d.city, { d = d.copy(city = it) }, stringResource(R.string.f_city))
+
+            SectionTitle(stringResource(R.string.f_on_map))
+            Text(
+                if (d.lat != null) stringResource(R.string.f_on_map_yes, "%.5f, %.5f".format(java.util.Locale.ROOT, d.lat, d.lon)) else stringResource(R.string.f_on_map_no),
+                style = UType.Muted, modifier = Modifier.padding(start = 4.dp, bottom = 10.dp),
+            )
+            Row(horizontalArrangement = Arrangement.spacedBy(10.dp)) {
+                SoftButton(stringResource(R.string.im_here_map), here, Modifier.weight(1f), icon = Icons.Rounded.MyLocation)
+                SoftButton(stringResource(R.string.f_pick), {
+                    c.container.pickFrom.value = d.lat?.let { it to d.lon!! }
+                    c.container.pickQuery.value = listOf(d.name.takeIf { d.address.isBlank() }, d.address, d.city).filterNot { it.isNullOrBlank() }.joinToString(", ")
+                    go.pick()
+                }, Modifier.weight(1f), icon = Icons.Rounded.Map)
+            }
+            if (d.lat != null) Row { TextLink(stringResource(R.string.f_off_map), { d = d.copy(lat = null, lon = null) }) }
 
             SectionTitle(stringResource(R.string.f_front))
             Box(Modifier.fillMaxWidth().clip(U.RMd).background(U.c.wood).padding(vertical = 22.dp), contentAlignment = Alignment.Center) {
@@ -196,5 +227,19 @@ private fun pattern(p: Pattern) = stringResource(
         Pattern.CHEVRON -> R.string.p_chevron
         Pattern.BAND -> R.string.p_band
         Pattern.SUN -> R.string.p_sun
+    },
+)
+
+/** The form as a list of plain values, for saved state. */
+private val DraftSaver = Saver<CafeDraft, ArrayList<Any?>>(
+    save = { d ->
+        arrayListOf(d.name, d.address, d.city, d.sub, d.pattern.name, d.palette, d.usual, d.usualDrink?.name, d.spot, d.barista, Tag.join(d.tags), d.story, d.sketch, d.lat, d.lon)
+    },
+    restore = { l ->
+        CafeDraft(
+            name = l[0] as String, address = l[1] as String, city = l[2] as String, sub = l[3] as String, pattern = Pattern.of(l[4] as String),
+            palette = l[5] as Int, usual = l[6] as String, usualDrink = Drink.of(l[7] as String?), spot = l[8] as String, barista = l[9] as String,
+            tags = Tag.parse(l[10] as String), story = l[11] as String, sketch = l[12] as String?, lat = l[13] as Double?, lon = l[14] as Double?,
+        )
     },
 )

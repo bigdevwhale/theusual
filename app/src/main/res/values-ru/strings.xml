@@ -162,6 +162,22 @@
     <string name="y_closed">Закрылись в этом году</string>
     <string name="y_index">Индекс: %s</string>
 
+    <string name="map_title">Карта</string>
+    <string name="im_here_map">Я здесь</string>
+    <string name="no_location">Не получилось узнать, где ты. Геолокация включена?</string>
+    <string name="map_empty">На карте пока нет кофеен.\nПоставь кофейню на карту с её страницы: Изменить → На карте.</string>
+    <string name="osm_credit">© участники OpenStreetMap</string>
+    <string name="last_here">последний раз: %s</string>
+    <string name="pick_title">Где она?</string>
+    <string name="pick_hint">подвинь карту под булавку</string>
+    <string name="pick_closer">сначала приблизь карту до улиц</string>
+    <string name="pick_done">Поставить здесь</string>
+    <string name="on_the_map">на карте →</string>
+    <string name="f_on_map">На карте</string>
+    <string name="f_on_map_yes">На карте: %s</string>
+    <string name="f_on_map_no">Пока не на карте.</string>
+    <string name="f_pick">Выбрать на карте</string>
+    <string name="f_off_map">Убрать с карты</string>
     <string name="s_you">Ты</string>
     <string name="s_name">Имя</string>
     <string name="s_name_sub">Подпись под пакетиками, которые ты отправляешь друзьям.</string>
@@ -174,5 +190,5 @@
     <string name="s_language">Язык</string>
     <string name="s_lang_system">Как в системе</string>
     <string name="s_about">О приложении</string>
-    <string name="s_about_text">The Usual — дневник кофеен, куда ты возвращаешься, часть Stillcraft. Без аккаунта, рекламы, аналитики и вообще без интернета: дневник остаётся в телефоне. Фото фасадов перерисовываются в наброски прямо на телефоне, хранится только набросок. Шрифты: Playfair Display, Caveat, Manrope и PT Mono (SIL Open Font License).</string>
+    <string name="s_about_text">The Usual — дневник кофеен, куда ты возвращаешься, часть Stillcraft. Без аккаунта, рекламы и аналитики: дневник остаётся в телефоне. Интернет нужен только для фрагментов карты OpenStreetMap, а геолокация — только когда ты нажимаешь «Я здесь». Фото фасадов перерисовываются в наброски прямо на телефоне, хранится только набросок. Шрифты: Playfair Display, Caveat, Manrope и PT Mono (SIL Open Font License).</string>
 </resources>

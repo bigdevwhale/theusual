@@ -20,7 +20,7 @@ class RulesTest {
     private fun day(y: Int, m: Int, d: Int) = LocalDate.of(y, m, d).atTime(10, 0).toInstant(zone).toEpochMilli()
 
     @Test fun packetGoesThereAndBack() {
-        val p = PacketCard("Grain & Co", "12 Ryleeva St", "St Petersburg", "by the park", Pattern.SUN, 3, "Get the flat white. Sit by the window.", "Anya")
+        val p = PacketCard("Grain & Co", "12 Ryleeva St", "St Petersburg", "by the park", Pattern.SUN, 3, "Get the flat white. Sit by the window.", "Anya", 59.94371, 30.35772)
         assertEquals(p, Packets.parse(Packets.text(p)))
     }
 

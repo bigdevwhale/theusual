@@ -19,6 +19,8 @@ guard() { # guard <package-substring>
 tap_text() {
   guard "$1" || return 1
   "$ADB" shell uiautomator dump /sdcard/ui.xml >/dev/null 2>&1
+  # On HyperOS a tap right after a dump is sometimes swallowed.
+  sleep 1
   local b
   b=$("$ADB" exec-out cat /sdcard/ui.xml | python -c "
 import sys,re

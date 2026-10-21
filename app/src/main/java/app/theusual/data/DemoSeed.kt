@@ -20,24 +20,25 @@ object DemoSeed {
         val usualEn: String = "", val usualRu: String = "", val usualDrink: Drink? = null,
         val spotEn: String = "", val spotRu: String = "", val baristaEn: String = "", val baristaRu: String = "",
         val storyEn: String = "", val storyRu: String = "",
+        val lat: Double? = null, val lon: Double? = null,
     )
 
     private val spots = listOf(
         Spot("Grain & Co", "Зерно и Ко", "by the park", "у парка", "12 Ryleeva St", "ул. Рылеева, 12", "St Petersburg", "Петербург",
             Pattern.STRIPES, 0, setOf(Tag.SOCKETS, Tag.QUIET, Tag.LAPTOP), "flat white on oat, no sugar", "флэт уайт на овсяном, без сахара", Drink.FLAT_WHITE,
             "by the window, left of the fig tree", "у окна, слева от фикуса", "Lyosha (a cat tattooed on his hand)", "Лёша (кот на руке)",
-            "Found it hiding from the rain in February. Stayed for the window.", "Нашёл, когда прятался от дождя в феврале. Остался ради окна."),
+            "Found it hiding from the rain in February. Stayed for the window.", "Нашёл, когда прятался от дождя в феврале. Остался ради окна.", 59.94372, 30.35771),
         Spot("Penka", "Пенка", "by the bridge", "у моста", "3 Fontanka Emb", "наб. Фонтанки, 3", "St Petersburg", "Петербург",
-            Pattern.DOTS, 1, setOf(Tag.TERRACE, Tag.DOGS), spotEn = "the stools at the bar", spotRu = "высокие стулья у стойки"),
+            Pattern.DOTS, 1, setOf(Tag.TERRACE, Tag.DOGS), spotEn = "the stools at the bar", spotRu = "высокие стулья у стойки", lat = 59.94124, lon = 30.34093),
         Spot("Owl", "Сова", "till 2 am", "до 2 ночи", "40 Liteyny Ave", "Литейный, 40", "St Petersburg", "Петербург",
-            Pattern.CHEVRON, 2, setOf(Tag.LATE, Tag.LAPTOP, Tag.SOCKETS, Tag.WIFI)),
+            Pattern.CHEVRON, 2, setOf(Tag.LATE, Tag.LAPTOP, Tag.SOCKETS, Tag.WIFI), lat = 59.93942, lon = 30.34808),
         Spot("Ray", "Луч", "brunches", "бранчи", "7 Bolshaya Konyushennaya", "Б. Конюшенная, 7", "St Petersburg", "Петербург",
-            Pattern.SUN, 3, setOf(Tag.BRUNCH, Tag.TERRACE)),
-        Spot("Pier", "Причал", "coffee", "кофе", "Rua da Boavista 22", "Rua da Boavista, 22", "Lisbon", "Лиссабон", Pattern.BAND, 4),
-        Spot("Ficus", "Фикус", "on the corner", "на углу", "Abashidze St 9", "ул. Абашидзе, 9", "Tbilisi", "Тбилиси", Pattern.STRIPES, 5, setOf(Tag.DOGS)),
+            Pattern.SUN, 3, setOf(Tag.BRUNCH, Tag.TERRACE), lat = 59.93872, lon = 30.32301),
+        Spot("Pier", "Причал", "coffee", "кофе", "Rua da Boavista 22", "Rua da Boavista, 22", "Lisbon", "Лиссабон", Pattern.BAND, 4, lat = 38.70858, lon = -9.14891),
+        Spot("Ficus", "Фикус", "on the corner", "на углу", "Abashidze St 9", "ул. Абашидзе, 9", "Tbilisi", "Тбилиси", Pattern.STRIPES, 5, setOf(Tag.DOGS), lat = 41.70989, lon = 44.75528),
         Spot("Cinnamon & Vanilla", "Корица и ваниль", "and vanilla", "и ваниль", "18 Zhukovskogo St", "ул. Жуковского, 18", "St Petersburg", "Петербург",
-            Pattern.DOTS, 6, setOf(Tag.QUIET), "raf with cinnamon", "раф с корицей", Drink.RAF, "the armchair by the radiator", "кресло у батареи"),
-        Spot("The Cellar", "Подвал", "", "", "5 Rubinshteyna St", "ул. Рубинштейна, 5", "St Petersburg", "Петербург", Pattern.CHEVRON, 7),
+            Pattern.DOTS, 6, setOf(Tag.QUIET), "raf with cinnamon", "раф с корицей", Drink.RAF, "the armchair by the radiator", "кресло у батареи", lat = 59.93531, lon = 30.35736),
+        Spot("The Cellar", "Подвал", "", "", "5 Rubinshteyna St", "ул. Рубинштейна, 5", "St Petersburg", "Петербург", Pattern.CHEVRON, 7, lat = 59.93170, lon = 30.34489),
     )
 
     suspend fun seedIfEmpty(c: Context, container: AppContainer) {
@@ -56,7 +57,7 @@ object DemoSeed {
                     name = if (ru) s.ru else s.en, sub = if (ru) s.subRu else s.subEn, address = if (ru) s.addressRu else s.addressEn, city = if (ru) s.cityRu else s.cityEn,
                     pattern = s.pattern.name, palette = s.palette, tags = Tag.join(s.tags), usual = if (ru) s.usualRu else s.usualEn, usualDrink = s.usualDrink?.name.orEmpty(),
                     spot = if (ru) s.spotRu else s.spotEn, barista = if (ru) s.baristaRu else s.baristaEn, story = if (ru) s.storyRu else s.storyEn,
-                    addedAt = ago(400.0 - i * 30), seed = 1000L + i * 7L,
+                    addedAt = ago(400.0 - i * 30), seed = 1000L + i * 7L, lat = s.lat, lon = s.lon,
                     from = if (s.en == "The Cellar") (if (ru) "Аня" else "Anya") else "",
                     fromNote = if (s.en == "The Cellar") (if (ru) "Возьми фильтр на эфиопии и садись на подоконник. Спроси про пластинки :)" else "Get the Ethiopian filter and sit on the windowsill. Ask about the records :)") else "",
                 ),

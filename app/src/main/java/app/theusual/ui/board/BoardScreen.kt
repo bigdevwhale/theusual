@@ -31,6 +31,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
 import androidx.compose.material.icons.rounded.AutoStories
 import androidx.compose.material.icons.rounded.LocalCafe
+import androidx.compose.material.icons.rounded.Map
 import androidx.compose.material.icons.rounded.Settings
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -105,6 +106,7 @@ fun BoardScreen(h: Home, go: Go) {
                     )
                 }
             }
+            IconButton(onClick = { go.map() }) { Icon(Icons.Rounded.Map, stringResource(R.string.map_title), tint = U.c.muted) }
             IconButton(onClick = go::year) { Icon(Icons.Rounded.AutoStories, stringResource(R.string.year_title), tint = U.c.muted) }
             IconButton(onClick = go::settings) { Icon(Icons.Rounded.Settings, stringResource(R.string.settings), tint = U.c.muted) }
         }

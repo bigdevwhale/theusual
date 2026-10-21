@@ -3,6 +3,7 @@ package app.theusual.ui.cafe
 import androidx.compose.foundation.layout.ExperimentalLayoutApi
 import androidx.compose.foundation.layout.FlowRow
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -43,6 +44,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Brush
@@ -117,7 +119,7 @@ fun CafeScreen(id: Long, h: Home, go: Go) {
                 }
             }
             if (cafe.closed) item { Memorial(cafe, h) }
-            item { LeftPage(cafe, h, visits) }
+            item { LeftPage(cafe, h, visits, go) }
             if (visits.isNotEmpty()) {
                 item { RightPage(cafe, h, visits) }
                 item { Spacer(Modifier.height(18.dp)) }
@@ -188,7 +190,7 @@ private fun Memorial(cafe: Cafe, h: Home) {
 
 @OptIn(ExperimentalLayoutApi::class)
 @Composable
-private fun LeftPage(cafe: Cafe, h: Home, visits: List<Visit>) {
+private fun LeftPage(cafe: Cafe, h: Home, visits: List<Visit>, go: Go) {
     val c = ctx()
     val standing = h.standing(cafe)
     Column(Modifier.padding(horizontal = 14.dp, vertical = 8.dp).rotate(-.6f).laid().paper().padding(horizontal = 18.dp, vertical = 20.dp)) {
@@ -207,6 +209,10 @@ private fun LeftPage(cafe: Cafe, h: Home, visits: List<Visit>) {
         Text(cafe.name.uppercase(), fontFamily = Mono, fontWeight = FontWeight.Bold, fontSize = 17.sp, letterSpacing = 1.5.sp, color = U.c.pen)
         val place = listOf(cafe.address, cafe.city).filter { it.isNotBlank() }.joinToString(" · ")
         if (place.isNotEmpty()) Text(place, style = UType.Typed.copy(color = U.c.penSoft))
+        if (cafe.onMap) Text(
+            stringResource(R.string.on_the_map), fontFamily = Hand, fontSize = 21.sp, color = U.c.red,
+            modifier = Modifier.padding(top = 2.dp).clip(U.RSm).clickable { go.map(cafe.id) },
+        )
         Spacer(Modifier.height(8.dp))
         Dotted()
         if (cafe.fromNote.isNotBlank() || (standing == Standing.WANT && cafe.from.isNotBlank())) {

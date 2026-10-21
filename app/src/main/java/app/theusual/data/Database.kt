@@ -1,6 +1,7 @@
 package app.theusual.data
 
 import android.content.Context
+import androidx.room.AutoMigration
 import androidx.room.Dao
 import androidx.room.Database
 import androidx.room.Entity
@@ -83,11 +84,15 @@ data class Cafe(
     val closedAt: Long = 0,
     val farewell: String = "",
     val seed: Long = 0,
+    /** Where it is on the map; null until it's put there. */
+    val lat: Double? = null,
+    val lon: Double? = null,
 ) {
     val patternOf: Pattern get() = Pattern.of(pattern)
     val tagsOf: Set<Tag> get() = Tag.parse(tags)
     val usualDrinkOf: Drink? get() = Drink.of(usualDrink)
     val closed: Boolean get() = closedAt > 0
+    val onMap: Boolean get() = lat != null && lon != null
 }
 
 /**
@@ -158,7 +163,7 @@ interface DiaryDao {
     }
 }
 
-@Database(entities = [Cafe::class, Visit::class], version = 1, exportSchema = true)
+@Database(entities = [Cafe::class, Visit::class], version = 2, exportSchema = true, autoMigrations = [AutoMigration(from = 1, to = 2)])
 abstract class DiaryDatabase : RoomDatabase() {
     abstract fun dao(): DiaryDao
 

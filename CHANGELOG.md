@@ -12,4 +12,5 @@ The first release.
 - Packets for friends as plain text; shared back in, they land on the board as "want to go".
 - Closed cafés keep their page, with the window gone dark and a last line.
 - The year in cups, with a personal price index.
-- English and Russian. No internet permission.
+- The map: cafés as sugar packets on a sepia OpenStreetMap plan, by city; "I'm here" or pick on the map; packets carry the place.
+- English and Russian. Online only for map tiles.

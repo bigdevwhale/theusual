@@ -14,6 +14,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
+import org.osmdroid.config.Configuration as OsmConfig
+import java.io.File
 
 class AppContainer(context: Context) {
     val db = DiaryDatabase.create(context)
@@ -23,6 +25,13 @@ class AppContainer(context: Context) {
 
     /** A packet shared into the app by a friend, waiting to be put on the board. */
     val packet = MutableStateFlow<PacketCard?>(null)
+
+    /** Putting a café on the map: where the picker starts, and the point it hands back. */
+    val pickFrom = MutableStateFlow<Pair<Double, Double>?>(null)
+    val picked = MutableStateFlow<Pair<Double, Double>?>(null)
+
+    /** The address the picker looks up when there's no point yet. */
+    val pickQuery = MutableStateFlow("")
 
     /** Fire-and-forget so a write survives the screen being closed right after tapping. */
     fun write(block: suspend AppContainer.() -> Unit) {
@@ -37,6 +46,14 @@ class TheUsualApp : Application() {
     override fun onCreate() {
         super.onCreate()
         container = AppContainer(this)
+        // Tiles come from openstreetmap.org, whose policy asks for an app-specific user agent.
+        OsmConfig.getInstance().apply {
+            userAgentValue = "TheUsual/${BuildConfig.VERSION_NAME} (${BuildConfig.APPLICATION_ID})"
+            osmdroidBasePath = File(cacheDir, "osmdroid")
+            osmdroidTileCache = File(cacheDir, "osmdroid/tiles")
+            tileFileSystemCacheMaxBytes = 150L * 1024 * 1024
+            tileFileSystemCacheTrimBytes = 120L * 1024 * 1024
+        }
         if (BuildConfig.DEMO) container.scope.launch { DemoSeed.seedIfEmpty(this@TheUsualApp, container) }
     }
 }

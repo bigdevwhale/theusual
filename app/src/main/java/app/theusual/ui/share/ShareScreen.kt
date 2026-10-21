@@ -101,7 +101,7 @@ fun ShareScreen(id: Long, h: Home, go: Go) {
             Spacer(Modifier.height(24.dp))
             PrimaryButton(stringResource(R.string.send_packet), {
                 if (name.trim() != h.settings.name) c.container.write { settings.update { it.copy(name = name.trim()) } }
-                val text = Packets.text(PacketCard(cafe.name, cafe.address, cafe.city, cafe.sub, cafe.patternOf, cafe.palette, note, name))
+                val text = Packets.text(PacketCard(cafe.name, cafe.address, cafe.city, cafe.sub, cafe.patternOf, cafe.palette, note, name, cafe.lat, cafe.lon))
                 val send = Intent(Intent.ACTION_SEND).setType("text/plain").putExtra(Intent.EXTRA_TEXT, text)
                 c.startActivity(Intent.createChooser(send, c.getString(R.string.send_packet)))
             }, Modifier.padding(horizontal = 24.dp).fillMaxWidth(), icon = Icons.AutoMirrored.Rounded.Send)

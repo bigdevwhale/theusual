@@ -6,7 +6,7 @@
 
 ### A diary of the cafés you keep coming back to.
 
-*Every café gets a page in a notebook and a sugar packet on a cork board under string lights. Every cup leaves a ring on the page, and the rings pile up where your cup always lands. From the tenth visit the café is yours, and the app asks the barista's question: the usual? Send a friend a packet with what to order, keep the page of a café that closed, and sit an hour by the window with the phone face down. Free, no ads, no account, no internet.*
+*Every café gets a page in a notebook and a sugar packet on a cork board under string lights. Every cup leaves a ring on the page, and the rings pile up where your cup always lands. From the tenth visit the café is yours, and the app asks the barista's question: the usual? Send a friend a packet with what to order, keep the page of a café that closed, and sit an hour by the window with the phone face down. Free, no ads, no account.*
 
 [![Android CI](https://github.com/bigdevwhale/theusual/actions/workflows/android.yml/badge.svg)](https://github.com/bigdevwhale/theusual/actions/workflows/android.yml)
 [![Release](https://img.shields.io/github/v/release/bigdevwhale/theusual?color=F2B25C&label=download&logo=android)](https://github.com/bigdevwhale/theusual/releases/latest)
@@ -16,7 +16,7 @@
 
 **English** · [Русский](README.ru.md) · [Changelog](CHANGELOG.md)
 
-<img src="docs/screenshots/en/1-board.jpg" width="200" /> <img src="docs/screenshots/en/2-cafe.jpg" width="200" /> <img src="docs/screenshots/en/3-usual.jpg" width="200" /> <img src="docs/screenshots/en/6-closed.jpg" width="200" />
+<img src="docs/screenshots/en/1-board.jpg" width="200" /> <img src="docs/screenshots/en/2-cafe.jpg" width="200" /> <img src="docs/screenshots/en/3-usual.jpg" width="200" /> <img src="docs/screenshots/en/6-closed.jpg" width="200" /> <img src="docs/screenshots/en/9-map.jpg" width="200" />
 
 </div>
 
@@ -35,11 +35,12 @@ Map apps rate cafés by strangers' stars. But the cafés that matter are the few
 5. **An hour by the window.** Put the phone face down and look out: time counts only while it lies face down, and goes onto the cup.
 6. **Packets for friends.** Send a café as a sugar packet with a sticky note ("get the filter, sit on the windowsill"). It travels as plain text through any messenger; a friend with The Usual shares it back in, and it lands on their board as a dashed "want to go" packet.
 7. **When a café closes.** Its page stays, with every ring, and the window on it goes dark: chairs up on the table, a sign on the door, and your last line. The packet gets a black ribbon.
-8. **The year in cups.** A long till receipt: cups, cafés, the new ones, hours by the window, the most faithful place, the drink and the company of the year, the closed ones, and your own price index of the drink you order most.
+8. **The map.** Your cafés as little sugar packets on an OpenStreetMap plan printed in sepia, a city at a time. Put a café there with "I'm here" or by moving the map under the pin; a packet sent to a friend carries its place too.
+9. **The year in cups.** A long till receipt: cups, cafés, the new ones, hours by the window, the most faithful place, the drink and the company of the year, the closed ones, and your own price index of the drink you order most.
 
 ## Privacy
 
-There's no account, no ads, no analytics, and no internet permission at all. The diary stays on the phone. Photos are taken with the phone's own camera app, redrawn as sketches on the phone, and only the sketch is kept.
+There's no account, no ads and no analytics. The diary stays on the phone. The app goes online for one thing only: the map's tiles from OpenStreetMap. Location is read only when you tap "I'm here" to put a café on the map. Photos are taken with the phone's own camera app, redrawn as sketches on the phone, and only the sketch is kept.
 
 ## Building
 

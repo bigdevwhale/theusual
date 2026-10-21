@@ -1,0 +1,230 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 2,
+    "identityHash": "643a22e64f67c093e0a3a8e6391d2c2c",
+    "entities": [
+      {
+        "tableName": "cafes",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `name` TEXT NOT NULL, `address` TEXT NOT NULL, `city` TEXT NOT NULL, `sub` TEXT NOT NULL, `pattern` TEXT NOT NULL, `palette` INTEGER NOT NULL, `usual` TEXT NOT NULL, `usualDrink` TEXT NOT NULL, `spot` TEXT NOT NULL, `barista` TEXT NOT NULL, `tags` TEXT NOT NULL, `story` TEXT NOT NULL, `sketch` TEXT, `from` TEXT NOT NULL, `fromNote` TEXT NOT NULL, `addedAt` INTEGER NOT NULL, `closedAt` INTEGER NOT NULL, `farewell` TEXT NOT NULL, `seed` INTEGER NOT NULL, `lat` REAL, `lon` REAL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "name",
+            "columnName": "name",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "address",
+            "columnName": "address",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "city",
+            "columnName": "city",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sub",
+            "columnName": "sub",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "pattern",
+            "columnName": "pattern",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "palette",
+            "columnName": "palette",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "usual",
+            "columnName": "usual",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "usualDrink",
+            "columnName": "usualDrink",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "spot",
+            "columnName": "spot",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "barista",
+            "columnName": "barista",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tags",
+            "columnName": "tags",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "story",
+            "columnName": "story",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "sketch",
+            "columnName": "sketch",
+            "affinity": "TEXT"
+          },
+          {
+            "fieldPath": "from",
+            "columnName": "from",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "fromNote",
+            "columnName": "fromNote",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "addedAt",
+            "columnName": "addedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "closedAt",
+            "columnName": "closedAt",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "farewell",
+            "columnName": "farewell",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "seed",
+            "columnName": "seed",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lat",
+            "columnName": "lat",
+            "affinity": "REAL"
+          },
+          {
+            "fieldPath": "lon",
+            "columnName": "lon",
+            "affinity": "REAL"
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        }
+      },
+      {
+        "tableName": "visits",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `cafeId` INTEGER NOT NULL, `at` INTEGER NOT NULL, `drink` TEXT NOT NULL, `what` TEXT NOT NULL, `price` INTEGER, `with` TEXT NOT NULL, `note` TEXT NOT NULL, `windowMin` INTEGER NOT NULL)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "cafeId",
+            "columnName": "cafeId",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "at",
+            "columnName": "at",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "drink",
+            "columnName": "drink",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "what",
+            "columnName": "what",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "price",
+            "columnName": "price",
+            "affinity": "INTEGER"
+          },
+          {
+            "fieldPath": "with",
+            "columnName": "with",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "note",
+            "columnName": "note",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "windowMin",
+            "columnName": "windowMin",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": true,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_visits_cafeId",
+            "unique": false,
+            "columnNames": [
+              "cafeId"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_visits_cafeId` ON `${TABLE_NAME}` (`cafeId`)"
+          }
+        ]
+      }
+    ],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '643a22e64f67c093e0a3a8e6391d2c2c')"
+    ]
+  }
+}

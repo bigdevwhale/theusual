@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- No internet, no camera permission: photos are taken by the phone's own camera app. -->
+    <!-- Only for the map: OpenStreetMap tiles. Nothing else goes online. -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- Asked only when "I'm here" puts a café on the map. -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <!-- No camera permission: photos are taken by the phone's own camera app. -->
     <queries>
         <intent>
             <action android:name="android.media.action.IMAGE_CAPTURE" />
