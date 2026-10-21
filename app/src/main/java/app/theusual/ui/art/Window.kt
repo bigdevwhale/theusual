@@ -225,8 +225,10 @@ fun DrawScope.steamWisps(at: Offset, h: Float, t: Float, color: Color, width: Fl
     }
 }
 
-private fun gold() = Brush.verticalGradient(
-    0f to Color(0xFFFBE6A6), .5f to Color(0xFFD9A24A), .55f to Color(0xFFB98232), 1f to Color(0xFFF1CF7C),
+/** Gold leaf from [top] to [bottom]: pale at the top, a dark band across the middle, warm below. */
+private fun gold(top: Float = 0f, bottom: Float = Float.POSITIVE_INFINITY) = Brush.verticalGradient(
+    0f to Color(0xFFF7DC8F), .48f to Color(0xFFC98A2E), .52f to Color(0xFF8E5A1C), 1f to Color(0xFFE2B25A),
+    startY = top, endY = bottom,
 )
 
 private fun Density.units(px: Float): TextUnit = px.toSp()
@@ -235,14 +237,14 @@ private fun DrawScope.lettering(m: TextMeasurer, d: Density, name: String, tagli
     val big = TextStyle(fontFamily = Sign, fontWeight = FontWeight.Black, fontStyle = FontStyle.Italic, fontSize = d.units(if (name.length > 12) 84f else 108f))
     val layout = m.measure(name, big)
     val top = Offset(560f - layout.size.width / 2f, WY + 168f - layout.firstBaseline)
-    drawText(layout, color = Color(0x661A0E05), topLeft = top + Offset(1.5f, 3f))
-    drawText(layout, color = Color(0xFF3A210E), topLeft = top, drawStyle = Stroke(5f))
-    drawText(layout, brush = gold(), topLeft = top)
+    drawText(layout, color = Color(0x441A0E05), topLeft = top + Offset(1f, 2f))
+    drawText(layout, color = Color(0xFF2A1607), topLeft = top, drawStyle = Stroke(4f))
+    drawText(layout, brush = gold(layout.size.height * .22f, layout.size.height * .82f), topLeft = top)
     drawPath(Path().apply { moveTo(420f, WY + 190f); quadraticTo(560f, WY + 206f, 700f, WY + 190f) }, gold(), style = Stroke(3f))
-    val small = m.measure(tagline, TextStyle(fontFamily = Mono, fontSize = d.units(15f), letterSpacing = d.units(5f)))
+    val small = m.measure(tagline, TextStyle(fontFamily = Mono, fontSize = d.units(17f), letterSpacing = d.units(4f)))
     val st = Offset(560f - small.size.width / 2f, WY + 220f - small.firstBaseline)
-    drawText(small, color = Color(0xFF3A210E), topLeft = st, drawStyle = Stroke(3f))
-    drawText(small, color = Color(0xFFE7BF69), topLeft = st)
+    drawText(small, color = Color(0xFF3A210E), topLeft = st, drawStyle = Stroke(5f))
+    drawText(small, color = Color(0xFFF6D98E), topLeft = st)
 }
 
 private fun DrawScope.closed(m: TextMeasurer, d: Density, sign: String, name: String) {
