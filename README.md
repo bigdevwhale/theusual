@@ -40,7 +40,7 @@ Map apps rate cafés by strangers' stars. But the cafés that matter are the few
 
 ## Privacy
 
-There's no account, no ads and no analytics. The diary stays on the phone. The app goes online for one thing only: the map's tiles from OpenStreetMap. Location is read only when you tap "I'm here" to put a café on the map. Photos are taken with the phone's own camera app, redrawn as sketches on the phone, and only the sketch is kept.
+There's no account, no ads and no analytics. The diary stays on the phone. The app goes online only for the map: its tiles from OpenStreetMap, and, when you open the map picker for a café, one lookup of its address on OpenStreetMap's Nominatim. Location is read only when you tap "I'm here" to put a café on the map. Photos are taken with the phone's own camera app, redrawn as sketches on the phone, and only the sketch is kept.
 
 ## Building
 

@@ -191,5 +191,5 @@
     <string name="s_language">Language</string>
     <string name="s_lang_system">System</string>
     <string name="s_about">About</string>
-    <string name="s_about_text">The Usual is a diary of the cafés you keep coming back to, part of Stillcraft. No account, no ads, no analytics: the diary stays on the phone. The internet is used only for the map\'s tiles from OpenStreetMap, and location only when you tap «I\'m here». Photos of café fronts are redrawn as sketches on the phone and only the sketch is kept. Fonts: Playfair Display, Caveat, Manrope and PT Mono (SIL Open Font License).</string>
+    <string name="s_about_text">The Usual is a diary of the cafés you keep coming back to, part of Stillcraft. No account, no ads, no analytics: the diary stays on the phone. The internet is used only for the map: its tiles from OpenStreetMap and one address lookup when you pick a café\'s place, and location only when you tap «I\'m here». Photos of café fronts are redrawn as sketches on the phone and only the sketch is kept. Fonts: Playfair Display, Caveat, Manrope and PT Mono (SIL Open Font License).</string>
 </resources>

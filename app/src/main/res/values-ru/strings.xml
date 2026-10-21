@@ -196,5 +196,5 @@
     <string name="s_language">Язык</string>
     <string name="s_lang_system">Как в системе</string>
     <string name="s_about">О приложении</string>
-    <string name="s_about_text">The Usual — дневник кофеен, куда ты возвращаешься, часть Stillcraft. Без аккаунта, рекламы и аналитики: дневник остаётся в телефоне. Интернет нужен только для фрагментов карты OpenStreetMap, а геолокация — только когда ты нажимаешь «Я здесь». Фото фасадов перерисовываются в наброски прямо на телефоне, хранится только набросок. Шрифты: Playfair Display, Caveat, Manrope и PT Mono (SIL Open Font License).</string>
+    <string name="s_about_text">The Usual — дневник кофеен, куда ты возвращаешься, часть Stillcraft. Без аккаунта, рекламы и аналитики: дневник остаётся в телефоне. Интернет нужен только для карты: её фрагментов OpenStreetMap и одного поиска адреса, когда ставишь кофейню на карту, а геолокация — только когда ты нажимаешь «Я здесь». Фото фасадов перерисовываются в наброски прямо на телефоне, хранится только набросок. Шрифты: Playfair Display, Caveat, Manrope и PT Mono (SIL Open Font License).</string>
 </resources>

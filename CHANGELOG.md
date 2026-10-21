@@ -1,5 +1,9 @@
 # Changelog
 
+## [Unreleased]
+
+- The privacy text names the one address lookup the map picker makes, not only the map tiles.
+
 ## [1.0.0] - 2026-10-21
 
 The first release.
